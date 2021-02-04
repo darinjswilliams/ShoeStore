@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
+import timber.log.Timber
 
 
 class LoginFragment : Fragment() {
@@ -39,6 +40,7 @@ class LoginFragment : Fragment() {
 
         }
 
+        Timber.i("LoginScreen")
         return binding.root
     }
 
