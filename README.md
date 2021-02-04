@@ -8,19 +8,19 @@ This Application consist of five screens
     4. Shoe Listing screen
     5. Shoe Detail screen for adding a new shoe
 
+# Dependencies
 
-##Dependencies
-    * Kotlin
-    * Material Design
-    * lifecycle-extensions
-    * Timber
-    * Junit
-    * Espresso
-    * Navigation-fragment
-    * Navigation-ui
+   * Kotlin
+   * Material Design
+   * lifecycle-extensions
+   * Timber
+   * Junit
+   * Espresso
+   * Navigation-fragment
+   * Navigation-ui
 
 
-#Architecture
+# Architecture
 
    * Architecture Components is used in the design of the application with fragments for reuse of code
    * A activityViewModels is used to share information between fragments
