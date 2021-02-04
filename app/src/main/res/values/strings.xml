@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email_text">Email Address</string>
+    <string name="password_text">Password</string>
+    <string name="new_login">Create Account</string>
+    <string name="existing_act_login">Existing Account</string>
+    <string name="welcome_title">SHOE STORE</string>
+    <string name="welcome_message">Welcome to the Shoe Store. We have a Variety of Shoes to choose from for the entire family. Enjoy your shopping exerience at the Shoe Store.</string>
+    <string name="welcome_next">Continue Shopping</string>
+    <string name="instruction_browse">Browse Selection</string>
+    <string name="instruction_title">Browse Shoes</string>
+    <string name="Instruction_title">"Instructions "</string>
+    <string name="instructions_message_text">To browse for Shoes click on browse buttion and to view a selection of shoes. On the Shoe Detail screen you can can add a new Shoe to the collection. Clicking the canel button will take you back to the collection of shoes</string>
+    <string name="submit">submit</string>
+    <string name="shoe_list_dest">Holding Shoes List</string>
+    <string name="shoe_detail_title">Add New Shoe To Inventory</string>
+    <string name="shoe_company">Name of Shoe Company</string>
+    <string name="shoe_name">Name of Shoe</string>
+    <string name="shoe_size">Size of Shoe</string>
+    <string name="shoe_cancel">Cancel</string>
+    <string name="shoe_add">Add Shoe</string>
+    <string name="shoelisting_name">Shoe Name</string>
+    <string name="shoeListing_company">Shoe Company</string>
+    <string name="shoeListing_size">Shoe Size</string>
+    <string name="shoeListing_description">Shoe Description</string>
+    <string name="shoe_inventory_description">Shoe Description</string>
+    <string name="login_out">Logout</string>
+</resources>
