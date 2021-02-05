@@ -58,12 +58,12 @@ class ShoeDestinationFragment : Fragment() {
             findNavController().navigate(ShoeDestinationFragmentDirections.actionShoeDestinationFragmentToShoeDetailFragment())
         }
 
-        shoeViewModel.shoeList.observe(viewLifecycleOwner, Observer { shoeList ->
-            if (shoeList == null) {
+        shoeViewModel.shoe.observe(viewLifecycleOwner, Observer { shoe ->
+            if (shoe == null) {
                 Snackbar.make(binding.root, "No Shoe Added", Snackbar.LENGTH_SHORT)
             } else {
                 //iterate the shoe
-                shoeList.forEach {
+                shoe.forEach {
                     //Add child view programmatically
                     vBinding = ShoetextviewBinding.inflate(inflater, container, false)
 

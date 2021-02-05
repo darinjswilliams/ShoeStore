@@ -6,25 +6,59 @@ import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.models.Shoe
 import timber.log.Timber
 
-class ShoeViewModel: ViewModel() {
+class ShoeViewModel : ViewModel() {
 
 
     //Internal
-    private var _shoeList = MutableLiveData<ArrayList<Shoe>>()
+    private var _shoeList = MutableLiveData<MutableList<Shoe>>()
+    private var shoeInventoryList: MutableList<Shoe> = mutableListOf(
+        Shoe(
+            "Skeaters", 10.5,
+            "Skeaters", "Causal Shoes"
+        ),
+        Shoe(
+            "Walkers", 11.5,
+            "Boots", "Boots"
+        )
+    )
+    private var _isValidShoe = MutableLiveData<Boolean>()
+    private var _cancelShoe = MutableLiveData<Boolean>()
 
     //External
-    val shoeList: LiveData<ArrayList<Shoe>>
-    get() = _shoeList
+    val shoe: LiveData<MutableList<Shoe>>
+        get() = _shoeList
+
+    val cancelShoe: LiveData<Boolean>
+    get() = _cancelShoe
+
+    val isValidShoe : LiveData<Boolean>
+    get() = _isValidShoe
 
     init {
-        _shoeList.value = ArrayList<Shoe>()
+        _shoeList.value = shoeInventoryList
     }
-    fun addShoe(newShoe: Shoe){
-        if(newShoe != null){
-            Timber.i("Added New Shoe..${newShoe}")
-        _shoeList.value?.add(newShoe)
-        }
 
+    fun addShoe(shoe: Shoe?) {
+        if (shoe != null) {
+            //Turn switch to true
+            _isValidShoe.value = true
+
+            Timber.i("Added New Shoe..${shoe}")
+            shoeInventoryList.add(shoe)
+
+            _shoeList.value = shoeInventoryList
+        }
+        Timber.i("Shoe is empty...${shoe}")
     }
+
+    fun cancelShoe(){
+        _isValidShoe.value = true
+    }
+
+    fun validateInventory(){
+        _isValidShoe.value = false
+        _cancelShoe.value = false
+    }
+
 
 }

@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -34,28 +35,37 @@ class ShoeDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
 
-        binding.shoeAddButton.setOnClickListener {
-            binding.apply {
-                shoe.company = shoeCompanyText.text.toString()
-                shoe.name = shoeNameText.text.toString()
-                shoe.size = shoeSizeText.text.toString().toDouble()
-                shoe.description = shoeInventoryDescription.text.toString()
-                shoeViewModel.addShoe(shoe)
-                Timber.i("Added shoe $shoe")
+        //Pass the ShoeViewModel into the binding.shoemodel so provide communication with xml
+        binding.shoeModel = shoeViewModel
+
+        //Make LifeCycleAware
+        binding.setLifecycleOwner(this)
+
+        shoeViewModel.isValidShoe.observe(viewLifecycleOwner, { checkForValidShoe ->
+            if(checkForValidShoe) {
+                navigationToRoute()
+                shoeViewModel.validateInventory()
             }
-            findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeDestinationFragment)
-        }
+        })
 
+        shoeViewModel.cancelShoe.observe(viewLifecycleOwner, { userCancelShoeRequest ->
+            if(userCancelShoeRequest){
+                navigationToRoute()
+                shoeViewModel.validateInventory()
+            }
 
-        binding.shoeCancelButton.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_shoeDetailFragment_to_shoeDestinationFragment)
-        )
+        })
+
 
         return binding.root
     }
 
 
+    private fun navigationToRoute(){
+        findNavController().navigateUp()
+    }
 }

@@ -4,13 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".destination.detail.ShoeDetailFragment">
 
+    <data>    
+        <import type="com.udacity.shoestore.utils.Converter"/>  
+
+        <variable
+            name="shoeModel"
+            type="com.udacity.shoestore.destination.ShoeViewModel" />
+
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <!-- TODO: Update blank fragment layout -->
 
         <TextView
             android:id="@+id/shoeDetailTitle"
@@ -36,26 +45,12 @@
             android:ems="10"
             android:hint="@string/shoe_company"
             android:inputType="textPersonName"
+            android:text="@{shoe.company}"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoeDetailTitle" />
 
-        <EditText
-            android:id="@+id/shoeSizeText"
-            style="@style/BaseStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:ems="10"
-            android:hint="@string/shoe_size"
-            android:inputType="textPersonName"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shoeInventoryDescription" />
 
         <EditText
             android:id="@+id/shoeNameText"
@@ -68,6 +63,7 @@
             android:ems="10"
             android:hint="@string/shoe_name"
             android:inputType="textPersonName"
+            android:text="@{shoe.name}"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -84,10 +80,28 @@
             android:ems="10"
             android:hint="@string/shoe_inventory_description"
             android:inputType="textPersonName"
+            android:text="@{shoe.description}"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoeNameText" />
+
+        <EditText
+            android:id="@+id/shoeSizeText"
+            style="@style/BaseStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="@string/shoe_size"
+            android:inputType="textPersonName"
+            android:text="@{Converter.doubleToString(shoe.size)}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shoeInventoryDescription" />
 
         <Button
             android:id="@+id/shoeCancel_Button"
@@ -98,6 +112,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:text="@string/shoe_cancel"
+            android:onClick="@{()-> shoeModel.cancelShoe()}"
             app:layout_constraintEnd_toStartOf="@+id/shoeAddButton"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -112,6 +127,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:text="@string/shoe_add"
+            android:onClick="@{()-> shoeModel.addShoe(shoe)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/shoeCancel_Button"
