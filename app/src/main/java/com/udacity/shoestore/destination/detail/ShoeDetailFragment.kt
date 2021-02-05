@@ -45,6 +45,9 @@ class ShoeDetailFragment : Fragment() {
         //Make LifeCycleAware
         binding.setLifecycleOwner(this)
 
+        //two way databinding
+        binding.shoe = shoe
+
         shoeViewModel.isValidShoe.observe(viewLifecycleOwner, { checkForValidShoe ->
             if(checkForValidShoe) {
                 navigationToRoute()
@@ -66,6 +69,7 @@ class ShoeDetailFragment : Fragment() {
 
 
     private fun navigationToRoute(){
+        //Since the navigation is simple, just go back to previous screen by use navigateUp
         findNavController().navigateUp()
     }
 }
