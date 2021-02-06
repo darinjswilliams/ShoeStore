@@ -3,23 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
+    <!-- Fragment Instructions using ConstraintLayout to layout elements -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/instructions_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".instructions.InstructionsFragment">
 
-        <!-- TODO: Update blank fragment layout -->
 
         <TextView
             android:id="@+id/instructions_title"
             style="@style/BaseStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/margin_wide"
+            android:layout_marginTop="@dimen/margin_wide"
+            android:layout_marginEnd="@dimen/margin_wide"
             android:text="@string/Instruction_title"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
@@ -31,9 +30,9 @@
             style="@style/BaseStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/margin_wide"
+            android:layout_marginTop="@dimen/margin_wide"
+            android:layout_marginEnd="@dimen/margin_wide"
             android:text="@string/instructions_message_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -45,7 +44,7 @@
             android:id="@+id/instructions_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/margin_wide"
             android:text="@string/instruction_browse"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

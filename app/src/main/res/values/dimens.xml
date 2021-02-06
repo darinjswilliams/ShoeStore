@@ -9,4 +9,5 @@
     <dimen name="margin_top">150dp</dimen>
     <dimen name="extra_small">6dp</dimen>
     <dimen name="twice_extra_small">12dp</dimen>
+    <dimen name="extra_large">50dp</dimen>
 </resources>

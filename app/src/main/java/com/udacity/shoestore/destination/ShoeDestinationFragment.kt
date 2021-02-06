@@ -29,7 +29,6 @@ class ShoeDestinationFragment : Fragment() {
     private val shoeViewModel: ShoeViewModel by activityViewModels()
     private lateinit var vBinding: ShoetextviewBinding
     private lateinit var mLinearLayout: LinearLayout
-    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,13 +47,9 @@ class ShoeDestinationFragment : Fragment() {
         //Get reference to viewModel
         Timber.i("Called ViewModelProvider")
 
-        //this line of code allows you to use livedata to automatically update your livedata layouts
-//        binding.setLifecycleOwner(this)
-
-
         mLinearLayout = binding.shoeItems
 
-        binding.fab.setOnClickListener { view: View ->
+        binding.fab.setOnClickListener { _ : View ->
             findNavController().navigate(ShoeDestinationFragmentDirections.actionShoeDestinationFragmentToShoeDetailFragment())
         }
 

@@ -49,14 +49,14 @@ class ShoeDetailFragment : Fragment() {
         binding.shoe = shoe
 
         shoeViewModel.isValidShoe.observe(viewLifecycleOwner, { checkForValidShoe ->
-            if(checkForValidShoe) {
+            if (checkForValidShoe) {
                 navigationToRoute()
                 shoeViewModel.validateInventory()
             }
         })
 
         shoeViewModel.cancelShoe.observe(viewLifecycleOwner, { userCancelShoeRequest ->
-            if(userCancelShoeRequest){
+            if (userCancelShoeRequest) {
                 navigationToRoute()
                 shoeViewModel.validateInventory()
             }
@@ -68,7 +68,7 @@ class ShoeDetailFragment : Fragment() {
     }
 
 
-    private fun navigationToRoute(){
+    private fun navigationToRoute() {
         //Since the navigation is simple, just go back to previous screen by use navigateUp
         findNavController().navigateUp()
     }

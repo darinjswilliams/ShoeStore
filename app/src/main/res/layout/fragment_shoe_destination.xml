@@ -8,6 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- Using LinearLayout inside of ScrollView to layout elements -->
+
         <LinearLayout
             android:id="@+id/shoe_items"
             android:layout_width="match_parent"
@@ -25,7 +27,7 @@
                 app:pressedTranslationZ="@dimen/twice_extra_small"
                 app:elevation="@dimen/extra_small"
                 android:contentDescription="@string/submit"
-                android:layout_margin="16dp" />
+                android:layout_margin="@dimen/margin_wide" />
 
         </LinearLayout>
 
